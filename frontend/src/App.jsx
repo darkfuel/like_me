@@ -18,13 +18,13 @@ function App () {
 
   const agregarPost = async () => {
     const post = { titulo, url: imgSrc, descripcion }
-    if (titulo === undefined || imgSrc === undefined || descripcion === undefined) {
-      await axios.post(urlBaseServer + '/posts', post)
-      getPosts()
-    } else {
-      window.alert('No puede existir espacios en blanco, favor completar')
+    if (titulo === '' || imgSrc === '' || descripcion === '') {
+      window.alert('Todos los campos deben ser completados')
+    }else{
+    await axios.post(urlBaseServer + '/posts', post)
+    getPosts()
     }
-  }
+}
 
   // este método se utilizará en el siguiente desafío
   const like = async (id) => {
